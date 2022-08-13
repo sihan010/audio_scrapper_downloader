@@ -7,6 +7,14 @@ Scrapes Bollywood audio album information from [PagalFree](pagalfree.com) by yea
 > Developed for learning & experimental purpose only. Not intended to
 > infringe and copyright. Use responsibly.
 
+## How to Run
+
+- Install Node.JS
+- Clone this repository and open terminal on project folder
+- Run command `npm install`
+- Run command `npm run dev`
+- Select appropriate action ( See next section for action explanation )
+
 ## Actions
 
 - Get albums of a year
