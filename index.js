@@ -1,5 +1,5 @@
 import { launch } from "puppeteer";
-import { ask, getAlbumlink, getYear } from "./prompt.js";
+import { ask, getAlbumlink, askBitrate, getYear } from "./prompt.js";
 import { scrape_abmums_by_year } from "./album_by_year_scrapper.js";
 import { scrape_album_info } from "./album_info_scrapper.js";
 import {
@@ -55,6 +55,7 @@ const getSingleAlbumDetails = async () => {
 
 const downloadFullAlbumsByYear = async () => {
   const year = await getYear();
+  const bitrate = await askBitrate();
   const albumDetailsFiles = await getAlbumDetailsFilesByYear(year);
   if (albumDetailsFiles.length === 0) {
     console.log(`Get Album Details of ${year} First`);
@@ -64,7 +65,7 @@ const downloadFullAlbumsByYear = async () => {
   for (let albumDetailsFile of albumDetailsFiles) {
     const albumDetails = await getJsonFileContent(albumDetailsFile);
     console.log(`\n---> Starting to download ${albumDetails.albumName} <---`);
-    await downloadAlbum(albumDetails, year);
+    await downloadAlbum(albumDetails, year, bitrate);
     console.log(`---> Finished download of ${albumDetails.albumName} <---\n`);
   }
   console.log("All done !");

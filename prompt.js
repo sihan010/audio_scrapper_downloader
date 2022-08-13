@@ -21,6 +21,18 @@ const getAlbumlink = async () => {
   return answer.album;
 };
 
+const askBitrate = async () => {
+  const question = {
+    type: "list",
+    name: "bitrate",
+    message: "What BitRate do you prefer?",
+    default: 1,
+    choices: ["128 Kbps", "320 Kbps"],
+  };
+  const answer = await inquirer.prompt([question]);
+  return answer.bitrate;
+};
+
 const ask = async () => {
   const question = {
     type: "list",
@@ -41,4 +53,4 @@ const ask = async () => {
   return answer.action;
 };
 
-export { getYear, getAlbumlink, ask };
+export { getYear, getAlbumlink, askBitrate, ask };
