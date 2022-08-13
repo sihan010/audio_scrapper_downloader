@@ -1,0 +1,17 @@
+{
+  "name": "pagalfreescrapper",
+  "version": "1.0.0",
+  "description": "Scapper to generate audio details from PagalFree.com",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "author": "Sihan",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.1.0",
+    "node-fetch": "^3.2.10",
+    "puppeteer": "^16.1.0"
+  }
+}
